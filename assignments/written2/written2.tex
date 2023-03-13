@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+    \title{\textbf{Maths IA - Written 2}}
+    \date{}
+    \usepackage{amssymb}
+    \usepackage{amsmath}
+    \author{Jack Larkin}
+    \addtolength{\topmargin}{-3cm}
+    \addtolength{\textheight}{3cm}
+\begin{document}
+
+\maketitle
+
+\section*{Algebra}
+
+\subsection*{(a)}
+
+Beginning with the corresponding augmented matrix:
+
+$$\begin{bmatrix}
+1 & 0 & -2 & -1\\
+-1 & 2 & 3 & 5\\
+0 & -4 & -2 & b
+\end{bmatrix}$$
+
+Row operation $\mathbf{R_2 + R_1}$ gives:
+
+$$\begin{bmatrix}
+1 & 0 & -2 & -1\\
+0 & 2 & 1 & 4\\
+0 & -4 & -2 & b
+\end{bmatrix}$$
+
+Row operation $\mathbf{\frac{1}{2} R_2}$ gives:
+
+$$\begin{bmatrix}
+1 & 0 & -2 & -1\\
+0 & 1 & \frac{1}{2} & 2\\
+0 & -4 & -2 & b
+\end{bmatrix}$$
+
+Row operation $\mathbf{R_3 + 4R_2}$ gives:
+
+$$\begin{bmatrix}
+1 & 0 & -2 & -1\\
+0 & 1 & \frac{1}{2} & 2\\
+0 & 0 & 0 & b + 8
+\end{bmatrix}$$
+
+Which is in reduced row echelon form, as required.
+
+\subsection*{(b)}
+Considering the linear equation described in $\mathbf{R_3}$, $0x + 0y + 0z = b+8$, it is clear that $b=-8$, as $0x +0y +0z$ must be equal to $0$ for the linear system to be valid and have solutions. \\i.e $b+8=0 \therefore b=-8$.
+
+
+\subsection*{(c)}
+Letting $b=-8$, the following linear system is obtained:
+$$x-2z=-1$$
+$$y+\frac{1}{2}z=2$$
+From which $x$ and $y$ can be expressed in terms of $z$:
+$$x=2z-1$$
+$$y=2-\frac{1}{2}z$$
+Which means that the system of linear equations given has infinitely many solutions of the form
+$$(2z-1,2-\frac{1}{2}, z),z \in \mathbf{R}$$
+\section*{Calculus}
+First, the left and right hand limits $\lim_{x\to 1^+}g(x)$ and $\lim_{x\to 1^-}g(x)$ need to be calculated. Utilising properties 1.4 and 1.5 as defined in the course notes, which define elementary limits and the limit laws respectively, the limits can be calculated algebraically as follows. The right hand limit:
+$$\lim_{x\to 1^+}g(x)=\lim_{x\to 1^+}\frac{2f(x)+1}{x} $$ 
+$$ =\frac{2(\lim_{x\to 1}f(x))+1}{\lim_{x\to 1}x} $$ 
+$$ =\frac{2(1)+1}{1}$$
+$$ =3$$
+And the left hand limit:
+$$\lim_{x\to 1^-}g(x)=\lim_{x\to 1^+}x(2f(x)+1)$$ 
+$$ =\lim_{x\to 1}x(2(\lim_{x\to 1}f(x))+1)$$ 
+$$ =2(1)+1$$
+$$ =3$$
+Since the limit of $g(x)$ as $x\to 1$ is equal to $3$ from both the right hand and left hand side, $\lim_{x\to 1}g(x)=3$.
+\end{document}
+
