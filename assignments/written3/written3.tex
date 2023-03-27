@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+    \title{\textbf{Maths IA - Written 3}}
+    \date{}
+    \usepackage{amssymb}
+    \usepackage{amsmath}
+    \author{Jack Larkin}
+    \addtolength{\topmargin}{-3cm}
+    \addtolength{\textheight}{3cm}
+\begin{document}
+
+\maketitle
+
+\section*{Algebra}
+To determine the linear equation that characterizes whether $\mathbf{x}$ is in the span of the given vectors, we can set up an augmented matrix and row reduce it to determine whether the system is consistent or inconsistent.
+\\
+We start by writing the augmented matrix:
+$$\begin{bmatrix}
+1 & 0 & 1 & | & x_1 \\
+-2 & 1 & 0 & | & x_2 \\
+-1 & 1 & 1 & | & x_3 \\
+\end{bmatrix}$$ \\
+We then apply row operations to simplify the matrix. Adding 2 times row 1 to row 2 gives:
+$$\begin{bmatrix}
+1 & 0 & 1 & | & x_1 \\
+0 & 1 & 2 & | & 2x_1 + x_2 \\
+-1 & 1 & 1 & | & x_3 \\
+\end{bmatrix}$$ \\
+Adding row 1 to row 3 gives:
+$$\begin{bmatrix}
+1 & 0 & 1 & | & x_1 \\
+0 & 1 & 2 & | & 2x_1 + x_2 \\
+0 & 1 & 2 & | & x_1 + x_3 \\
+\end{bmatrix}$$ \\
+Subtracting row 2 from row 3 gives:
+$$\begin{bmatrix}
+1 & 0 & 1 & | & x_1 \\
+0 & 1 & 2 & | & 2x_1 + x_2 \\
+0 & 0 & 0 & | & x_1 + x_3 - 2x_1 -x_2\\
+\end{bmatrix}$$ \\
+Simplifying the last row gives:
+$$\begin{bmatrix}
+1 & 0 & 1 & | & x_1 \\
+0 & 1 & 2 & | & 2x_1 + x_2 \\
+0 & 0 & 0 & | & -x_1 -x_2 + x_3\\
+\end{bmatrix}$$ \\
+From this, we can see that the system is consistent if and only if $-x_1 - x_2 + x_3 = 0$. Therefore, the linear equation that characterizes whether x is in the span of the given vectors is $-x_1 - x_2 + x_3 = 0$. In other words, if the components of $\mathbf{x}$ satisfy this equation, then $\mathbf{x}$ is in the span of the given vectors, and if they do not satisfy this equation, then $\mathbf{x}$ is not in the span.
+
+
+\section*{Calculus}
+Calculating the left hand limit of $f(x)$ at $x=-1$ gives the following:
+$$\lim_{x\to -1^-}f(x)=(-1)^2+2(-1)=-1$$
+So for $f(x)$ to be continuous, it must be defined at the point $(-1,-1)$, and therefore $a(-1)+b=-1$.
+\\\\
+Now finding the right hand limit at $x=0$ gives the following:
+$$\lim_{x\to 0^+}f(x)=sin(0)=0$$
+Therefore, for $f(x)$ to be continuous, it must also be defined at hte point $(0,0)$. This means that $f(x)=ax+b$ forms a straight line which connects the points $(-1,-1)$ and $(0,0)$. Now it can be ascertained through simple observation that the y-intercept of this line is $0$, and the gradient is $1$, therefore $a=1$ and $b=0$.
+
+\end{document}
+
