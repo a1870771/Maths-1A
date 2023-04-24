@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+    \title{\textbf{Maths IA - Written 4}}
+    \date{}
+    \usepackage{amssymb}
+    \usepackage{amsmath}
+    \author{Jack Larkin}
+    \addtolength{\topmargin}{-3cm}
+    \addtolength{\textheight}{3cm}
+\begin{document}
+
+\maketitle
+
+\section*{Algebra}
+\subsection*{(a)}
+To determine the value(s) of $a$ for which the given vectors are linearly dependant, we need to show that the system of linear equations which they represent has a non-trivial solution, the system of equations being:
+$$x1
+\begin{bmatrix}
+1\\
+0\\
+2\\
+\end{bmatrix}
++ x2
+\begin{bmatrix}
+1\\
+1\\
+a\\
+\end{bmatrix}
++ x3
+\begin{bmatrix}
+a\\
+1\\
+-1\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0\\
+0\\
+\end{bmatrix}
+$$
+Expanding this equation gives:
+$$x_1 + x_2 + ax_3 = 0$$
+$$x_2 + x_3 = 0$$
+$$2x_1 + ax_2 -x_3 = 0$$
+Which can be written as follows as an augmented matrix:
+$$\begin{bmatrix}
+1 & 1 & a & 0\\
+0 & 1 & 1 & 0\\
+2 & a & -1 & 0\\
+\end{bmatrix}$$
+Which, via Gauss-Jordan elimination, can be written in row echelon form as follows:
+
+$$\begin{bmatrix}
+1 & 1 & a & 0\\
+0 & 1 & 1 & 0\\
+0 & 0 & -3a+1 & 0\\
+\end{bmatrix}$$
+From which it can be observed that $x_3(-3a+1)=0$, and therefore either $x_3=0$ or $a=\frac{1}{3}$.\\\\
+If we let $x_2=0$, we will arrive at a trivial solution ($x_1 = x_2 = x_3 = 0$), so the only value of $a$ for which the given vectors are linearly dependant is $\frac{1}{3}$.\\
+\\\textbf{Answer: } $a = \frac{1}{3}$.
+\subsection*{(b)}
+The answer in the previous section gives us the ability to rewrite the vectors in row-reduced matrix as follows:
+$$\begin{bmatrix}
+1 & 0 & \frac{-2}{3} & 0\\
+0 & 1 & 1 & 0\\
+0 & 0 & 0 & 0\\
+\end{bmatrix}$$
+Which then lets us write $v_3$ as a linear combination of $v_1$ and $v_2$ by simple observation:
+$$v_3=\frac{-2}{3}v_1+v_2$$
+
+\section*{Calculus}
+\subsection*{(a)}
+Given $x^3=x^2-3y^2$, $\frac{dy}{dx}$ can be found with implicit differentiation.
+The first step is to differentiate both sides of the equation:
+$$3x^2=2x-6y\frac{dy}{dx}$$
+and then simply isolate $\frac{dy}{dx}$ as the subject of the equation:
+$$\frac{dy}{dx}=-\frac{3x^2-2x}{6y}$$
+\subsection*{(b)}
+At the point on the Tschirnhausen cubic where $x=-2$ and $y>0$, $y=2$. Therefore the slope of the tangent to the curv is given by $\frac{dy}{dx}$ at $(x,y)=(-2,2)$.
+$$\frac{dy}{dx}=-\frac{3(-2^2)-2(-2)}{6(2)}$$
+$$\therefore \frac{dy}{dx}=-\frac{4}{3}$$
+\end{document}

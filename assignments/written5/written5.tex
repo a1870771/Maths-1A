@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+    \title{\textbf{Maths IA - Written 4}}
+    \date{}
+    \usepackage{amssymb}
+    \usepackage{amsmath}
+    \author{Jack Larkin}
+    \addtolength{\topmargin}{-3cm}
+    \addtolength{\textheight}{3cm}
+\begin{document}
+
+\maketitle
+
+\section*{Algebra}
+To show that $V$ is a subspace of $\mathbf{R}^3$, three conditions need to be shown true:\\
+\\1) The zero vector must be in $V$
+\\2) If vectors $\mathbf{u,v}$ are in $V$, then $\mathbf{u+v} \in V$
+\\3) If $\mathbf{u}\in V$, and $c \in \mathbf{R}$, then $c\mathbf{u}\in V$\\\\
+Given the set $V=\{(x,y,z)\in\mathbf{R}^3|x-y-z=0\}$, it is clear that $(0,0,0)\in V$, as $(0-0-0=0)$, $\therefore$ the first condition is true.
+Now if we take two solutions $\mathbf{u,v}$, then:
+$$u_1-u_2-u_3=0 \;\;\text{and}\;\;v_1-v_2-v_3=0$$
+Adding these two equations together, we get:
+$$(u_1+v_1)-(u_2+v_2)-(u_3+v_3)=0$$
+As required, and so the second condition is met.
+Finally, if $c\in\mathbf{R}$, then:
+$$cu_1-cu_2-cu_3=c(u_1-u_2-u_3)=0$$
+So $c\mathbf{u}$ is a solution. This shows that V satisfies the three defining properties of a subspace.
+\section*{Calculus}
+Defining $t$ as hours since the moment when the edges of the sun and the moon first touch, consider how the distance between the centre of each circle is at its greatest at $t=0$ and $t=3$, and that at the midpoint of the eclipse, $t=1.5$, $a$ is 0.
+This is enough to define $a(t)$, and consequently $a'(t)$ as follows:
+$$a(t)=\frac{4r}{3}t-2r$$
+$$a'(t)=\frac{4}{3}r$$
+Bearing in mind that velocity is negligibly close to constant, for this case. 
+
+\end{document}
