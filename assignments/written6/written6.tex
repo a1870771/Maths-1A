@@ -3,6 +3,7 @@
     \date{}
     \usepackage{amssymb}
     \usepackage{amsmath}
+    \usepackage{multirow}
     \author{Jack Larkin}
     \addtolength{\topmargin}{-3cm}
     \addtolength{\textheight}{3cm}
@@ -11,7 +12,8 @@
 \maketitle
 
 \section*{Algebra}
-To begin with this problem, consider the stochastic matrix below which gives the transition 
+\subsection*{(a)}
+To begin with this problem, consider the transition matrix for the nine square snakes and ladders grid in the case where there are no snakes or ladders. For any given starting square, the probability that, on the next move, the player will land on any of the four immediately following squares is exactly $\frac{1}{4}$, assuming a fair tetrahedral die.
 $$\begin{bmatrix}
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
 0.25 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
@@ -22,9 +24,83 @@ $$\begin{bmatrix}
 0 & 0 & 0.25 & 0.25 & 0.25 & 0.25 & 0 & 0 & 0\\
 0 & 0 & 0 & 0.25 & 0.25 & 0.25 & 0.25 & 0 & 0\\
 0 & 0 & 0 & 0 & 0.25 & 0.5 & 0.75 & 1 & 1\\
-
 \end{bmatrix}$$
+To go from this to the stochastic matrix of the board given, the following snakes and ladders need to be considered.\\
+\begin{center}
+\begin{tabular}{ |p{2cm}||p{2cm}| }
+\hline
+\multicolumn{2}{|c|}{Snakes and Ladders} \\
+\hline
+From & To\\
+\hline
+4 & 1\\
+7 & 5\\
+2 & 6\\
+\hline
+\end{tabular}
+\end{center}
+This means columns and rows 4, 7 and 2 in the transition matrix can be changed to zeros, since it's impossible to land on them. The probability at arriving at any of these impossible squares can simply be added to the corresponding 'to' square. That yeilds the following matrix:\\
+$$\begin{bmatrix}
+0.25 & 0.25 & 0.25 & 0    & 0    & 0    & 0    & 0 & 0\\
+0    & 0    & 0    & 0    & 0    & 0    & 0    & 0 & 0\\
+0.25 & 0.25 & 0    & 0    & 0    & 0    & 0    & 0 & 0\\
+0    & 0    & 0    & 0    & 0    & 0    & 0    & 0 & 0\\
+0.25 & 0.25 & 0.5  & 0.5  & 0.25 & 0.25 & 0    & 0 & 0\\
+0.25 & 0.25 & 0.25 & 0.25 & 0.25 & 0    & 0    & 0 & 0\\
+0    & 0    & 0    & 0    & 0    & 0    & 0    & 0 & 0\\
+0    & 0    & 0    & 0.25 & 0.25 & 0.25 & 0.25 & 0 & 0\\
+0    & 0    & 0    & 0    & 0.25 & 0.5  & 0.75 & 1 & 1\\
+\end{bmatrix}$$
+Which is the stochastic matrix $\mathbf{A}$ that, when multiplied by a state vector, gives the probability for the position of a piece after one move.
+\subsection*{(b)}
+The game begins by placeing a piece on square 1 - this means that the state vector $\mathbf{x_0}$ can be written as: $$\begin{bmatrix}
+1 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+\end{bmatrix}$$
+Therefore, the state matrix after two iterations $\mathbf{x_2}$ can be given by $\mathbf{A^2x_0}$. This can be calculated with technology, and can be shown to equal:
+$$\begin{bmatrix}
+0.125 \\
+0 \\
+0.0625 \\
+0 \\
+0.3125 \\
+0.1875 \\
+0 \\
+0.125 \\
+0.1875 \\
+\end{bmatrix}$$
+Which means that $\mathbf{x_9}$, the probability that, after two moves, the piece has landed on the 9th square, thus ending the game, is equal to 0.1875.\\\\
+$\textbf{Answer: } 0.1875$
 \section*{Calculus}
+The steps given in the course notes section 2.6.4 to find global extrema of a function are as follows:\\\\
+1) Find the critical points of the function.\\
+2) Evaluate the function at these critical points, including the endpoints of the interval.\\
+3) Compare the values of the function thus obtained.\\
+\\
+To apply this process to $f(x)=\frac{\sqrt{x}}{1+x^2}$, the first derivative of this function has to be found:
+$$\frac{d}{dx}\frac{\sqrt{x}}{1+x^2} =\frac{\frac{d}{dx}\left(\sqrt{x}\right)\left(1+x^2\right)-\frac{d}{dx}\left(1+x^2\right)\sqrt{x}}{\left(1+x^2\right)^2}$$
 
-
+$$=\frac{\frac{1}{2x^{\frac{1}{2}}}\left(1+x^2\right)-2x\sqrt{x}}{\left(1+x^2\right)^2}$$
+$$=\frac{1+x^2-4\sqrt{x}x^{\frac{3}{2}}}{2x^{\frac{1}{2}}\left(1+x^2\right)^2}$$
+The critical point(s) of the function will occur where this derivative is equal to 0, which means that the critical point(s) occur when:
+$$1+x^2-4\sqrt{x}x^{\frac{3}{2}}=0$$
+Solving for $x$:
+$$16x^4=x^4+2x^2+1$$
+$$x=\frac{1}{\sqrt{3}},\:x=-\frac{1}{\sqrt{3}}$$
+Since the domain of the function is greater than or equal to zero, it can be confirmed that a critical point of $f(x)$ occurs when $x=\frac{1}{\sqrt{3}}$
+Two more critical points can be found at the endpoints of the domain over which $f(x)$ is defined, $x=0$ and $x=2$. Now the third step in the method, evaluating and comparing $f(x)$ at each critical point. It can be shown with a mixture of observation and technology that:
+$$f(0)=0$$
+$$f(\frac{1}{\sqrt{3}})=\frac{3}{4\sqrt[2]{3}}\approx 0.57$$
+and
+$$f(2)=\frac{\sqrt{2}}{5}\approx 0.28$$
+So then it is clear that:
+$$f(0)<f(\frac{1}{\sqrt{3}}<f(2)$$
+And therefore that the global minimum of $f(x)$ over the given domain occurs when $x=0$, and the global maximum when $x=\frac{1}{\sqrt{3}}$
 \end{document}
