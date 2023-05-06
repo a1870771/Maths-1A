@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-    \title{\textbf{Maths IA - Written 4}}
+    \title{\textbf{Maths IA - Written 5}}
     \date{}
     \usepackage{amssymb}
     \usepackage{amsmath}
@@ -25,10 +25,25 @@ Finally, if $c\in\mathbf{R}$, then:
 $$cu_1-cu_2-cu_3=c(u_1-u_2-u_3)=0$$
 So $c\mathbf{u}$ is a solution. This shows that V satisfies the three defining properties of a subspace.
 \section*{Calculus}
+Taking the derivative of the equation given for $\Delta A$ with respect to time $t$ yields the following:
+$$\Delta A = \frac{1}{\pi}(\pi - 2arccos(\frac{a}{2r})+ \frac{a}{2r}\sqrt{4r^2-a^2}$$
+$$\therefore \frac{d}{dt}\Delta A = \frac{1}{\pi} ( \frac{da}{dt}\frac{2}{\sqrt{1-\frac{a}{2r}^2}}+\frac{a}{2r^2}\frac{da}{dt}\frac{1}{2}(4r^2-a^2)^{\frac{-1}{2}}(-2a)+\frac{da}{dt}\frac{1}{2r^2}\sqrt{4r^2-a^2}) $$
+Which is many things, short sharp and shiny not being ones that spring to mind. Simplifying this expression leads us to:
+$$\therefore \frac{d}{dt}\Delta A = \frac{1}{\pi} ( \frac{da}{dt}\frac{2}{\sqrt{1-\frac{a}{2r}^2}}+\frac{da}{dt}(\frac{-2a^2}{4r^2\sqrt{4r^2-a^2}}+\frac{\sqrt{4r^2-a^2}}{2r^2} $$
+$$ = \frac{1}{\pi} ( \frac{da}{dt}\frac{2}{\sqrt{1-\frac{a}{2r}^2}}+\frac{da}{dt}\frac{4r^2-2a^2}{2r^2\sqrt{4r^2-a^2}})$$
+$$ = \frac{1}{\pi r}\frac{da}{dt}(\frac{1}{\sqrt{1-\frac{a}{2r}^2}}+\frac{2r^2-a^2}{r^2\sqrt{4r^2-a^2}})$$
+\subsection*{(b)}
+At the moment of totality, $a=r$ by definition, and it is given that the apparent radius $r=4$, which means the equation $\frac{d}{dt}\Delta A$ simplifies again significantly to: 
+$$\frac{d}{dt}\Delta A = \frac{1}{\pi}\frac{da}{dt}(\frac{1}{\sqrt{1-\frac{4}{2\times 4}^2}}+\frac{2\times 4^2-4^2}{4^2\sqrt{4\times 4^2-4^2}})$$
+$$ = \frac{1}{\pi}\frac{da}{dt}(\frac{3\sqrt{3}}{4})$$
 Defining $t$ as hours since the moment when the edges of the sun and the moon first touch, consider how the distance between the centre of each circle is at its greatest at $t=0$ and $t=3$, and that at the midpoint of the eclipse, $t=1.5$, $a$ is 0.
 This is enough to define $a(t)$, and consequently $a'(t)$ as follows:
 $$a(t)=\frac{4r}{3}t-2r$$
-$$a'(t)=\frac{4}{3}r$$
+$$a'(t)=\frac{4r}{3}$$
+$$a'(t)=\frac{16}{3}$$
 Bearing in mind that velocity is negligibly close to constant, for this case. 
+
+Which is all the information needed to claim that
+$$\Delta A  = \frac{4\sqrt{3}}{3\pi}$$
 
 \end{document}
