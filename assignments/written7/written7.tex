@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+    \title{\textbf{Maths IA - Written 6}}
+    \date{}
+    \usepackage{amssymb}
+    \usepackage{amsmath}
+    \usepackage{multirow}
+    \author{Jack Larkin}
+    \addtolength{\topmargin}{-3cm}
+    \addtolength{\textheight}{3cm}
+\begin{document}
+\maketitle
+\section*{Algebra}
+\subsection*{(a)}
+According to theorem 13.3, a square matrix is invertible if and only if it is row equivalent to the identity matrix. This means the logical starting point for the matrix given is to convert it to reduced row echelon form as follows:
+$$\begin{bmatrix}
+1 & 1 & 1 \\
+1 & -1 & 1 \\
+1 & c & c^2 \\
+\end{bmatrix}$$
+Subtract row 1 from rows 2 and 3: $R_2 = R_2 - R_1, R_3=R_3-R_1$:
+$$\begin{bmatrix}
+1 & 1 & 1 \\
+0 & -2 & 0 \\
+0 & c -1 & c^2 -1 \\
+\end{bmatrix}$$
+Divide row 2 by -2: $R_2=-\frac{R_2}{2}$:
+$$\begin{bmatrix}
+1 & 1 & 1 \\
+0 & 1 & 0 \\
+0 & c - 1 & c^2 - 1 \\
+\end{bmatrix}$$
+$R_3=R_3-(c-1)R_2$ and $R_1=R_1-R_2$
+$$\begin{bmatrix}
+1 & 0 & 1 \\
+0 & 1 & 0 \\
+0 & 0 & c^2 - 1 \\
+\end{bmatrix}$$
+Divide row 3 by $c^2-1$: $R_3=\frac{R_3}{c-1}$
+$$\begin{bmatrix}
+1 & 0 & 1 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix}$$
+Subtract $R_3$ from $R_1$: $R_1 = R_1 - R_3$
+$$\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix}$$
+Which is the identity matrix $I_3$, which means that the matrix given is invertible for all $c\neq \pm 1$, as this would make dividing a row by $c^2-1$ impossible. 
+\textbf{Answer: }$c\neq \pm 1$
+\subsection*{(b)}
+To find the inverse of the given matrix $A$, aswell as the elementary matrices whose product is equal to the inverse, we can start by finding the reduced row echelon form of the augmented matrix $A|I_3$, that is:
+$$\begin{bmatrix}
+1 & 1 & 1 & | & 1 & 0 & 0\\
+1 & -1 & 1 & | & 0 & 1 & 0\\
+1 & c & c^2 & | & 0 & 0 & 1\\
+\end{bmatrix}$$
+Which has reduced row echelon form:
+$$\begin{bmatrix}
+1 & 0 & 0 & | & \frac{c}{2(c-1)} & \frac{c}{2(c+1)} & \frac{-1}{c^2-1}\\
+0 & 1 & 0 & | & \frac{1}{2} & \frac{-1}{2} & 0\\
+0 & 0 & 1 & | & \frac{-1}{2(c-1)} & \frac{1}{2(c+1)} & \frac{1}{c^2-1}\\
+\end{bmatrix}$$
+Which exists, provided $c\neq \pm 1$, as per part (a). The row reduced matrix can be found via the following elementary row operations:
+\begin{enumerate}
+\item $R_2=R_2-R_1$
+\item $R_3 = R_3 - R_1$
+\item $R_2 = \frac{-1}{2}R_2$
+\item $R_1=R_1-R_2$
+\item $R_3=R_3-(c-1)R_2$
+\item $R_3=\frac{R_3}{c^2-1}$
+\item $R_1 = R_1 - R_3$
+\end{enumerate}  
+So the inverse of $A$ can be found through the product of the identity matrix $I_3$, which is itself an elementary matrix, and each of the seven elementary matrices which correspond to the aforementioned row operations, as follows:
+\begin{center}
+\begin{tabular}{ |p{4cm}||p{4cm}| }
+\hline
+Row Operation & Elementary Matrix\\
+\hline
+$$R_2=R_2-R_1$$ &
+$$E_1 = \begin{bmatrix}
+1 & 0 & 0 \\
+-1 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix}$$ \\
+$$R_3 = R_3 - R_1$$ &
+$$E_2 = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+-1 & 0 & 1 \\
+\end{bmatrix}$$  \\
+$$R_2 = \frac{-1}{2}R_2$$ &
+$$E_3 = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & \frac{-1}{2} & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix}$$  \\
+$$R_1=R_1-R_2$$ &
+$$E_4 = \begin{bmatrix}
+1 & -1 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix}$$  \\
+$$R_3=R_3-(c-1)R_2$$ &
+$$E_5 = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & -(c-1) & 1 \\
+\end{bmatrix}$$  \\
+$$R_3=\frac{R_3}{c^2-1}$$ &
+$$E_6 = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & \frac{1}{c^2-1} \\
+\end{bmatrix}$$  \\
+$$R_1 = R_1 - R_3$$ &
+$$E_7 = \begin{bmatrix}
+1 & 0 & -1 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix}$$  \\
+\hline
+\end{tabular}
+\end{center}
+It can be verified by hand or with technology that the product of the above elementary matrices and the identity matrix $I_3$ is equal to the inverse matrix of $A$, or rather, letting $I_3=E_8$:
+$$A^{-1}=E_1E_2E_3E_4E_5E_6E_7E_8, c\neq \pm 1$$
+\section*{Calculus}
+\subsection*{(a)}
+For the given values of $U_n$ and $L_n$, $f$ is integratable over the given domain if there exists a real number $I$ such that $L_n \leq I \leq U_n$ for all $n = 1,2,3,...$. As $n$ approaches infinity, $\frac{1}{n}$ approaches zero from the positive side, so consequently $\frac{-1}{n}$ must approach zero from the negative. This means that the real number 0 lies between $L_n$ and $U_n$ for all $n=1,2,3,...$, and therefore that $f$ is integratable over the given domain. Furthermore, $I$ is defined as the definite integral of $f(x)$ on the given domain, so:
+$$\int_{0}^{1} f(x) dx = 0$$
+\subsection*{(b)(i)}
+For the given function $g(x)$, dividing it into $n$ sub-intervals with width $\Delta x=\frac{1}{n}$, $L_n$ can be found with the following equation:
+$$\sum_{i=1}^{n} m_i \Delta x$$
+Where $m_i$ is the lower value over the sub-interval, which is equal to zero while $x=0$ and is otherwiase equal to 1. Therefore the above equation can be re-written as: 
+$$L_n=(n - 1) (1)(\frac{1}{n})$$ 
+\subsection*{(ii)}
+Similarly, $U_n$ can be calculated in the same way as:
+$$U_n=(n)(1)(\frac{1}{n})$$
+Which is equal to 1 for all values of n.
+\subsection*{(iii)}
+To use the previous answers in calculation of the definite integral, there needs to be $I$ such that $L_n \leq I \leq U_n$ for all $n = 1,2,3,...$. Since the value of $U_n$ is 1 for all $n$, and $L_n$ approaches 1 as $n$ goes to infinity, $I=1$, and therefore:
+$$\int_{0}^{1} g(x) dx = 1$$
+
+\end{document}
