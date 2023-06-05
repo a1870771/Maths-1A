@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+    \title{\textbf{Maths IA - Written 10}}
+    \date{}
+    \usepackage{amssymb}
+    \usepackage{amsmath}
+    \usepackage{multirow}
+    \usepackage{graphicx}
+	\graphicspath{ {./} }
+    \author{Jack Larkin}
+    \addtolength{\topmargin}{-3cm}
+    \addtolength{\textheight}{3cm}
+\begin{document}
+\maketitle
+\section*{Algebra}
+The first step in producing a workable linear optimisation problem from Rafael's fruit tree dilema is to define the thing which is being maximised or minimised along with the variables which comprise it. In this case his fruit yield is being optimised, and is measured in kilograms of pome fruits, stone fruits and citrus fruits produced by his trees. With that in mind, let the variables $x_1, x_2$ and $x_3$ be defined as:
+$$x_1=\text{pome trees, }x_2=\text{stone fruit trees, } x_3=\text{citrus trees}$$
+Since it is given that each pome, stone or citrus tree produces 10, 8 or 12 kilograms of fruit respectively, the following objective function to be maximised can be defined:
+$$f(x_1,x_2,x_3)=10x_1+8x_2+12x_3$$
+It is also given that each type of fruit tree can be grown with $2m^2,3m^2$ or $4m^2$ of space respectively, and that he has at most $200m^2$ of space to offer, which gives us the following restriction:
+$$2x_1+3x_2+4x_3\leq 200$$
+Furthermore, we know that Rafael wants at least 35 trees, i.e:
+$$x_1+x_2+x_3\geq 35$$
+And that he wants at least twice as many stone fruit trees as pome trees, and three times as many citrus trees as pome trees, from which we can pull the following two conditions:
+$$x_2\geq 2x_1$$
+$$x_3\geq 3x_1$$
+Add the condition that $x_1,x_2 \text{ and }x_3$ are all positive, and this is a fully formed and workable linear optimisation problem.\\\\\\
+\textbf{Answer: }\\
+Variables:
+$$x_1=\text{number of pome trees}$$
+$$x_2=\text{number of stone fruit trees}$$
+$$x_3=\text{number of citrus trees}$$
+Objective function: 
+$$f(x_1,x_2,x_3)=10x_1+8x_2+12x_3$$
+Constraints:
+$$2x_1+3x_2+4x_3\leq 200$$
+$$x_1+x_2+x_3\geq 35$$
+$$x_2\geq 2x_1$$
+$$x_3\geq 3x_1$$
+$$x_1 \geq 0,x_2 \geq 0,x_3 \geq 0$$
+\section*{Calculus}
+$$\int \frac{x}{\sqrt{x^2+4}}dx$$
+The first step in solving this integral is applying the given trigonometric substitution:
+$$x=2tan(\theta)$$
+$$\therefore \frac{dx}{d\theta}=2sec^2(x)$$
+Which gives:
+$$\int \frac{2tan(\theta)}{\sqrt{2tan^2(\theta)+4}}\times 2sec^2(\theta)d\theta$$
+Which can be rewritten as:
+$$\int \frac{tan(\theta)}{\sqrt{tan^2(\theta)+1}}\times sec^2(\theta)d\theta$$
+And simplified further, using the trigonometric identity $tan^2(x)+1=sec^2(x)$:
+$$\int \frac{sec^2(\theta) tan(\theta)}{\sqrt{sec^2(\theta)}} d\theta = \int \sqrt{sec^2(x)}tan(x)dx$$
+\end{document}
