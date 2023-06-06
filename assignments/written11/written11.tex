@@ -12,7 +12,82 @@
 \begin{document}
 \maketitle
 \section*{Algebra}
-
+\subsection*{(a)}
+To begin with this problem, we can consider $(A-2I)\begin{bmatrix}1\\1\\1\\\end{bmatrix}$. Utilising the distributive properties of matrix multiplication, this becomes $A\begin{bmatrix}1\\1\\1\\\end{bmatrix}-2I\begin{bmatrix}1\\1\\1\\\end{bmatrix}$. It is given that the first term is equal to $\begin{bmatrix}2\\2\\2\\\end{bmatrix}$, and the identity matrix is known, therefore the following statement should be observed:
+$$(A-2I)\begin{bmatrix}1\\1\\1\\\end{bmatrix}=\begin{bmatrix}2\\2\\2\end{bmatrix}-2\begin{bmatrix}1\\1\\1\\\end{bmatrix}$$
+$$=\begin{bmatrix}2\\2\\2\end{bmatrix}-\begin{bmatrix}2\\2\\2\end{bmatrix}$$
+$$=\begin{bmatrix}0\\0\\0\end{bmatrix}$$
+Therefore, the homogenous linear system $(A-2I)\mathbf{X}=0$ has a solution which isn't the trivial solution $\mathbf{X=0}$. By Theorem 13.3, since this is the case, it is also the case that $\mathbf{A-2I}$ is not invertible, and furthermore, by Theorem 18.3, the determinant of $\mathbf{A-2I}$ must be equal to 0.\\\\
+\textbf{Answer:} 0
+\subsection*{(b)}
+To calculate the determinant of the given matrix $B$, the elementary row operations used to turn $A$ into $B$ must be defined, as this will let the matrix $B$ be expressed in terms of matrices with known determinants. 
+$$A= \begin{bmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i \\
+\end{bmatrix}$$
+$R_3=2R_3$:
+$$= \begin{bmatrix}
+a & b & c \\
+d & e & f \\
+2g & 2h & 2i \\
+\end{bmatrix}$$
+$R_2=R_2+2R_1$
+$$= \begin{bmatrix}
+a & b & c \\
+d + 2a & e + 2a & f + 2a \\
+2g & 2h & 2i \\
+\end{bmatrix}$$
+\\$$=B$$\\
+$$\therefore B = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 2 \\
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i \\
+\end{bmatrix}$$\\
+And from Theorem 18.3 (b), it should be observed that the determinant of the products is equal to the product of the determinants when each matrix is the same size.
+$$\therefore det(B)=
+\begin{vmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 2 \\
+\end{vmatrix}
+\begin{vmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{vmatrix}
+\begin{vmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i \\
+\end{vmatrix}
+$$
+$$=2\times 1\times 3$$
+$$=6$$
+\textbf{Answer: }6
 \section*{Calculus}
-
+The first step in evaluating this integral is finding the limit, if it exists, as $x$ approaches infinity in the integrand:
+$$\lim_{x\to \infty} \frac{1}{\sqrt{x}+x\sqrt{x}} = 0$$
+Since the limit exists, using definition 3.3, the given integral can be redefined as:
+$$\lim_{b\to \infty}\int_1^b \frac{1}{\sqrt{x}+x\sqrt{x}}dx$$
+Using the given substition $u=\sqrt{x}$, can be written as:
+$$\int_1^\infty \frac{2u}{u+u^3}du$$
+Note that the upper and lower bounds do not change in this case. This simplifies to:
+$$2\int_1^\infty \frac{1}{1+u^2}du$$
+Which is of the form of a common integral and hence becomes:
+$$2\int_1^\infty arctan(u)du$$
+Which can be solved for an exact value as follows:
+$$2\int_1^\infty arctan(u)du=2[arctan(\infty)-arctan(1)]$$
+$$=2(\frac{\pi}{2}-\frac{\pi}{4})$$
+$$=\frac{\pi}{2}$$
 \end{document}
